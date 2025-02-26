@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
+// ignore: must_be_immutable
 class MoneyResultUI extends StatefulWidget {
   //สร้างตัวแปรมารับค่าที่ส่งมา
   double? money;
@@ -22,6 +24,11 @@ class MoneyResultUI extends StatefulWidget {
 }
 
 class _MoneyResultUIState extends State<MoneyResultUI> {
+  //ทำทศนิยม 2 ตำแหน่ง และ , คั่นหลักพันหลักล้าน....
+  // # คือ ไม่มีทศนิยมก็ไม่ต้องเเสดง
+  // 0 คือ มีทศนิยมกี่ตำแหน่งก็ต้องเเสดง
+  final numberFormat = NumberFormat('#,###.00');
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,7 +36,7 @@ class _MoneyResultUIState extends State<MoneyResultUI> {
       appBar: AppBar(
         backgroundColor: Colors.purple,
         title: Text(
-          'แชร์เงินกันเถอะ',
+          'แชร์เงินกันเถอะ (ผลลัพธ์)',
           style: TextStyle(
             color: Colors.white,
           ),
@@ -50,26 +57,26 @@ class _MoneyResultUIState extends State<MoneyResultUI> {
           child: Column(
             children: [
               SizedBox(
-                height: 50,
+                height: 50.0,
               ),
               Image.asset(
                 'assets/images/money.png',
-                width: MediaQuery.of(context).size.width * 0.35,
+                width: MediaQuery.of(context).size.width * 0.3,
               ),
               SizedBox(
-                height: 35.0,
+                height: 40.0,
               ),
               Text(
                 'จำนวนเงิน',
                 style: TextStyle(
                   fontSize: 20.0,
-                  fontWeight: FontWeight.bold,
                 ),
               ),
               Text(
-                widget.money!.toStringAsFixed(2),
+                // widget.money!.toStringAsFixed(2),
+                numberFormat.format(widget.money!),
                 style: TextStyle(
-                  fontSize: 30.0,
+                  fontSize: 40.0,
                   fontWeight: FontWeight.bold,
                   color: Colors.purple,
                 ),
@@ -78,32 +85,29 @@ class _MoneyResultUIState extends State<MoneyResultUI> {
                 'บาท',
                 style: TextStyle(
                   fontSize: 20.0,
-                  fontWeight: FontWeight.bold,
                 ),
               ),
               SizedBox(
                 height: 20.0,
               ),
               Text(
-                'จำนวนที่ต้องการแชร์',
+                'จำนวนคนที่จะหาร',
                 style: TextStyle(
                   fontSize: 20.0,
-                  fontWeight: FontWeight.bold,
                 ),
               ),
               Text(
-                widget.person!.toStringAsFixed(2),
+                widget.person!.toString(),
                 style: TextStyle(
-                  fontSize: 30.0,
+                  fontSize: 40.0,
                   fontWeight: FontWeight.bold,
                   color: Colors.purple,
                 ),
               ),
               Text(
-                'บาท',
+                'คน',
                 style: TextStyle(
                   fontSize: 20.0,
-                  fontWeight: FontWeight.bold,
                 ),
               ),
               SizedBox(
@@ -113,13 +117,13 @@ class _MoneyResultUIState extends State<MoneyResultUI> {
                 'จำนวนเงินทิป',
                 style: TextStyle(
                   fontSize: 20.0,
-                  fontWeight: FontWeight.bold,
                 ),
               ),
               Text(
-                widget.tip!.toStringAsFixed(2),
+                // widget.tip!.toStringAsFixed(2),
+                numberFormat.format(widget.tip!),
                 style: TextStyle(
-                  fontSize: 30.0,
+                  fontSize: 40.0,
                   fontWeight: FontWeight.bold,
                   color: Colors.purple,
                 ),
@@ -128,32 +132,30 @@ class _MoneyResultUIState extends State<MoneyResultUI> {
                 'บาท',
                 style: TextStyle(
                   fontSize: 20.0,
-                  fontWeight: FontWeight.bold,
                 ),
               ),
               SizedBox(
                 height: 20.0,
               ),
               Text(
-                'สรุปหารคนละ',
+                'สรุปว่าหารกันคนละ',
                 style: TextStyle(
                   fontSize: 20.0,
-                  fontWeight: FontWeight.bold,
                 ),
               ),
               Text(
-                widget.moneyShare!.toStringAsFixed(2),
+                // widget.moneyShare!.toStringAsFixed(2),
+                numberFormat.format(widget.moneyShare!),
                 style: TextStyle(
-                  fontSize: 30.0,
+                  fontSize: 40.0,
                   fontWeight: FontWeight.bold,
-                  color: Colors.purple,
+                  color: const Color.fromARGB(255, 255, 0, 0),
                 ),
               ),
               Text(
                 'บาท',
                 style: TextStyle(
                   fontSize: 20.0,
-                  fontWeight: FontWeight.bold,
                 ),
               ),
               SizedBox(

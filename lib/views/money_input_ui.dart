@@ -252,7 +252,14 @@ class _MoneyInputUIState extends State<MoneyInputUI> {
                   height: 15.0,
                 ),
                 ElevatedButton.icon(
-                  onPressed: () {},
+                  onPressed: () {
+                    setState(() {
+                      moneyCtrl.text = '';
+                      personCtrl.text = '';
+                      tipCtrl.text = '';
+                      isTip = false;
+                    });
+                  },
                   icon: Icon(
                     Icons.cancel_outlined,
                     color: Colors.white,
