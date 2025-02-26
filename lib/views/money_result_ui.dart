@@ -1,15 +1,29 @@
 import 'package:flutter/material.dart';
 
-class MoneyResultUi extends StatefulWidget {
-  const MoneyResultUi({super.key});
+class MoneyResultUI extends StatefulWidget {
+  //สร้างตัวแปรมารับค่าที่ส่งมา
+  double? money;
+  int? person;
+  double? tip;
+  double? moneyShare;
+
+  //เอาตัวแปรที่สร้างไว้มารับค่าที่ส่งมา
+  MoneyResultUI({
+    //constractor
+    super.key,
+    this.money,
+    this.person,
+    this.tip,
+    this.moneyShare,
+  });
 
   @override
-  State<MoneyResultUi> createState() => _MoneyResultUiState();
+  State<MoneyResultUI> createState() => _MoneyResultUIState();
 }
 
-class _MoneyResultUiState extends State<MoneyResultUi> {
+class _MoneyResultUIState extends State<MoneyResultUI> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold();
+    return Scaffold();
   }
 }
